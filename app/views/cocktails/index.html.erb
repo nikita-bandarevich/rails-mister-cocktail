@@ -1,0 +1,6 @@
+<h1>cocktails archive:</h1>
+
+
+<% @cocktails.each do |c| %>
+<h2>-<%= link_to "#{c[:name]}", cocktail_path(c)%></h2>
+<% end %>
