@@ -1,6 +1,62 @@
-<h1>cocktails archive:</h1>
+  <div class="banner">
+    <div class="container">
+      <h1>ARCHIVE lets you <strong>develop</strong> your <strong>own personal drinking 'carte'</strong>!</h1>
+      <p class="mb-3">add/remove/modify everything related to cocktails</p>
+      <%= link_to "design yours", new_cocktail_path(@cocktail), class: "btn btn-ghost"%>
+    </div>
+</div>
 
 
-<% @cocktails.each do |c| %>
-<h2>-<%= link_to "#{c[:name]}", cocktail_path(c)%></h2>
-<% end %>
+<div class=" my_container px-4">
+  <h2 class="pb-2 pt-2">my top</h2>
+  <div class="cards pb-4">
+    <% @cocktails.each do |c| %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path 'alcohol-berry-beverage-37925.jpg' %>)">
+        <%= link_to "#{c[:name]}", cocktail_path(c)%>
+        <% if c.rating == 1 %>
+            <div class=d-inline-flex">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+            </div>
+        <%  elsif c.rating == 2 %>
+            <div class=d-inline-flex">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+            </div>
+        <%  elsif c.rating == 3 %>
+            <div class=d-inline-flex">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+            </div>
+        <%  elsif c.rating == 4 %>
+            <div class=d-inline-flex">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star"></span>
+            </div>
+        <%  elsif c.rating = 5 %>
+            <div class=d-inline-flex">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+            </div>
+        <% else %>
+            <p></p>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   # get 'cocktails/update'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :cocktails do
+    collection do                       # collection => no restaurant id in URL
+      get 'top'                         # RestaurantsController#top
+    end
     resources :doses, only: [:new, :create]
   end
 end

@@ -16,5 +16,7 @@
 // const imagePath = (name) => images(name, true)
 
 import 'bootstrap';
+import { SetRatingStar } from 'packs/stars';
+SetRatingStar();
 
 console.log('Hello World from Webpacker')

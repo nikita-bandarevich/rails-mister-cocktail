@@ -4,9 +4,16 @@ class CocktailsController < ApplicationController
   end
 
   def new
+    @cocktail = Cocktail.new
   end
 
   def create
+    @cocktail = Cocktail.new(cocktails_strong_params)
+     if @cocktail.save
+       redirect_to cocktails_path
+     else
+       render :new
+     end
   end
 
   def show
@@ -20,5 +27,15 @@ class CocktailsController < ApplicationController
   end
 
   def update
+  end
+
+  def top
+    @restaurants = Restaurant.where(rating: 5)
+  end
+
+  private
+
+  def cocktails_strong_params
+    params.require(:cocktail).permit(:name, :rating)
   end
 end
